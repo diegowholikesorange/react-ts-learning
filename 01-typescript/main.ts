@@ -39,8 +39,7 @@ toysAreMe.sell(marbles);
 // generics
 function jsonCleaner<T>(input: T): T {
     const serialised = JSON.stringify(input);
-    const deserialised = JSON.parse(serialised);
-    return deserialised
+    return JSON.parse(serialised)
 }
 
 console.log("Cleaned: " + jsonCleaner<string>("Hi"));

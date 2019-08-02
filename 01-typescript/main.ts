@@ -1,8 +1,8 @@
 // needed to define local scope
 export { }
 
-let greeting: string = "Hello world"
-console.log(greeting)
+let greeting: string = "Hello world";
+console.log(greeting);
 
 // interfaces
 interface toy {
@@ -15,33 +15,33 @@ let marbles: toy = {
     name: "marbles",
     minAge: 3,
     play: () => console.log("Playing marbles")
-}
-console.log("Playing:")
-marbles.play()
+};
+marbles.play();
 
 // classes
 class toyshop {
-    address: string
+    address: string;
 
     constructor(address: string) {
         this.address = address
     }
 
     sell(item: toy) {
-        let message = `selling ${item.name} (minimum age ${item.minAge})`
+        let message = `selling ${item.name} (minimum age ${item.minAge})`;
         console.log("Message=" + message)
     }
 }
 
-let toysAreMe = new toyshop("33 Main Street")
-toysAreMe.sell(marbles)
+let toysAreMe = new toyshop("33 Main Street");
+toysAreMe.sell(marbles);
+
 
 // generics
 function jsonCleaner<T>(input: T): T {
-    const serialised = JSON.stringify(input)
-    const deserialised = JSON.parse(serialised)
+    const serialised = JSON.stringify(input);
+    const deserialised = JSON.parse(serialised);
     return deserialised
 }
 
-console.log("Cleaned: " + jsonCleaner<string>("Hi"))
-console.log("Cleaned: " + jsonCleaner<number>(33))
+console.log("Cleaned: " + jsonCleaner<string>("Hi"));
+console.log("Cleaned: " + jsonCleaner<number>(33));

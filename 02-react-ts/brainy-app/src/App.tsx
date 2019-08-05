@@ -1,57 +1,48 @@
-import React from 'react';
+import React, {MouseEvent} from 'react';
 import './App.css';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import BrainiesList from "./BrainiesList";
 
 
-interface Props {
+interface AppProps {
     title: string;
 }
 
-
-function createData(timestamp: number, blurp: string) {
-    return {timestamp, blurp};
+interface Brainie {
+    timestamp: number;
+    blurp: string;
 }
 
 
-const rows = [
+function createData(timestamp: number, blurp: string): Brainie {
+    return {timestamp: timestamp, blurp: blurp};
+}
+
+
+let rows: Array<Brainie> = [
     createData(1, "first digit at B800 is pier"),
     createData(2, "HR is called PAC"),
 ];
 
 
-const App: React.FunctionComponent<Props> = (props) => {
+const App: React.FunctionComponent<AppProps> = (props) => {
     return (
         <div className="App">
-
             <Paper>
-                <h3>
-                    {props.title}
-                </h3>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell align="left">Time Stamp</TableCell>
-                            <TableCell align="left">Brain Grain</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows.map(row => (
-                            <TableRow>
-                                <TableCell align="left">{row.timestamp}</TableCell>
-                                <TableCell align="left">{row.blurp}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
+                <h3>{props.title}</h3>
+                <BrainiesList brainies={rows}/>
+                <button onClick={handleClick}>Add</button>
             </Paper>
-
         </div>
     );
+};
+
+
+function handleClick(event: MouseEvent) {
+    event.preventDefault();
+    rows.push(createData(Date.now(), "you added this"))
+    console.log("Added item" + rows.length)
 }
+
 
 export default App;

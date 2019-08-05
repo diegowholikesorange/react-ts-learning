@@ -4,6 +4,7 @@ export { }
 let greeting: string = "Hello world";
 console.log(greeting);
 
+
 // interfaces
 interface toy {
     name: string
@@ -17,6 +18,7 @@ let marbles: toy = {
     play: () => console.log("Playing marbles")
 };
 marbles.play();
+
 
 // classes
 class toyshop {

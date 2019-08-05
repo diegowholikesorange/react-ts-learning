@@ -7,32 +7,31 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-type LinkedList<T> = T & { next: LinkedList<T> };
-
 
 interface Props {
     title: string;
-    brainiesList?: LinkedList<string>;
-    brainiesArray: Array<string>;
 }
-
-
 
 
 function createData(timestamp: number, blurp: string) {
     return {timestamp, blurp};
 }
 
+
 const rows = [
-    createData(1, "first digit is pier at B800"),
+    createData(1, "first digit at B800 is pier"),
     createData(2, "HR is called PAC"),
 ];
+
 
 const App: React.FunctionComponent<Props> = (props) => {
     return (
         <div className="App">
 
             <Paper>
+                <h3>
+                    {props.title}
+                </h3>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -50,7 +49,6 @@ const App: React.FunctionComponent<Props> = (props) => {
                     </TableBody>
                 </Table>
             </Paper>
-
 
         </div>
     );

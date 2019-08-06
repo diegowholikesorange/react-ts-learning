@@ -1,6 +1,5 @@
-import React, {MouseEvent} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Paper from '@material-ui/core/Paper';
 import BrainiesList from "./BrainiesList";
 
 
@@ -13,36 +12,33 @@ interface Brainie {
     blurp: string;
 }
 
+let initialRows: Array<Brainie> = [
+    createRowFromData(1, "first digit at B800 is pier"),
+    createRowFromData(2, "HR is called PAC"),
+];
 
-function createData(timestamp: number, blurp: string): Brainie {
+function createRowFromData(timestamp: number, blurp: string): Brainie {
     return {timestamp: timestamp, blurp: blurp};
 }
 
-
-let rows: Array<Brainie> = [
-    createData(1, "first digit at B800 is pier"),
-    createData(2, "HR is called PAC"),
-];
-
-
 const App: React.FunctionComponent<AppProps> = (props) => {
+
+    let [rowsInState, updateRowsInState] = useState(initialRows);
+
+    const handleClick = () => {
+        rowsInState = rowsInState.concat(createRowFromData(Date.now(), "you added this"))
+        updateRowsInState(rowsInState);
+    }
+
     return (
         <div className="App">
-            <Paper>
-                <h3>{props.title}</h3>
-                <BrainiesList brainies={rows}/>
-                <button onClick={handleClick}>Add</button>
-            </Paper>
+            <h3>{props.title}</h3>
+            <BrainiesList brainies={rowsInState}/>
+            <button onClick={handleClick}>Add</button>
         </div>
     );
+
 };
-
-
-function handleClick(event: MouseEvent) {
-    event.preventDefault();
-    rows.push(createData(Date.now(), "you added this"))
-    console.log("Added item" + rows.length)
-}
 
 
 export default App;

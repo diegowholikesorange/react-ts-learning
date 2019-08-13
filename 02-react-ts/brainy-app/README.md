@@ -62,3 +62,7 @@ Inside that directory, you can run several commands:
     and scripts into the app directory. If you do this, you can’t go back!
 
 
+## Links
+- https://fettblog.eu/typescript-react/events/
+- https://dev.to/bmcmahen/a-beginners-guide-to-using-typescript-with-react-7m6
+- https://levelup.gitconnected.com/usetypescript-a-complete-guide-to-react-hooks-and-typescript-db1858d1fb9c?gi=1e8bdf3e5ee2

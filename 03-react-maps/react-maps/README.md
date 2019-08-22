@@ -1,3 +1,14 @@
+# Maps Project
+
+
+Adding Google Maps to React App via 'google-maps-react' -> couldn't get styling working
+- https://dev.to/jessicabetts/how-to-use-google-maps-api-and-react-js-26c2
+so then with 'google-map-react':
+- https://www.npmjs.com/package/google-map-react
+
+# General
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

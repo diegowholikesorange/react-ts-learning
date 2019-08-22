@@ -5,6 +5,7 @@ Adding Google Maps to React App via 'google-maps-react' -> couldn't get styling 
 - https://dev.to/jessicabetts/how-to-use-google-maps-api-and-react-js-26c2
 so then with 'google-map-react':
 - https://www.npmjs.com/package/google-map-react
+- https://levelup.gitconnected.com/reactjs-google-maps-with-custom-marker-ece0c7d184c4
 
 # General
 

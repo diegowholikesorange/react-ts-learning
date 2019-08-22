@@ -7,3 +7,22 @@ Learning React &amp; TypeScript
 - https://alligator.io/react/typescript-with-react/
 
 - React tables: https://material-ui.com/components/tables/
+
+
+
+# Dev Cycle
+
+Start the development server.
+```
+yarn start
+```
+
+Bundle
+```
+yarn build
+```
+
+Test
+```
+yarn test
+```

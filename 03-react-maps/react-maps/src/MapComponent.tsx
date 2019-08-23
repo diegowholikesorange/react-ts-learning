@@ -1,22 +1,20 @@
 import * as React from "react";
-import {useState} from "react";
+import {useContext} from "react";
 import GoogleMapReact from 'google-map-react';
-
-interface Props {
-}
+import AppContext from "./AppContext";
 
 
-const MapComponent: React.FunctionComponent<Props> = (props) => {
+const MapComponent: React.FunctionComponent = () => {
 
-    const [center, setCenter] = useState({lat: -37.7835457, lng: 144.9162673});
-    const [scale, setScale] = useState(9);
+    const appContext = useContext(AppContext); // get default value from context
+    const center = {lat: -37.7835457, lng: 144.9162673};
 
     return (
         <div style={{height: '90vh', width: '90vw'}}>
             <GoogleMapReact
                 bootstrapURLKeys={{key: 'AIzaSyBvr4nejV93VXy0bCT34cP6oz5tC1FtezA'}}
                 defaultCenter={center}
-                zoom={scale}
+                zoom={appContext.scale}
             />
         </div>
 

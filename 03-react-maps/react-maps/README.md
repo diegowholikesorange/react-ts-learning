@@ -1,11 +1,21 @@
 # Maps Project
 
-
+## Adding Google Maps
 Adding Google Maps to React App via 'google-map-react'
  (using the similarly named 'google-maps-react' I couldn't get styling working):
 - https://levelup.gitconnected.com/reactjs-google-maps-with-custom-marker-ece0c7d184c4
 - https://github.com/google-map-react/google-map-react
 - https://www.npmjs.com/package/google-map-react
+
+## Adding a Slider
+- https://material-ui.com/components/slider/
+- https://stackoverflow.com/questions/47440051/get-material-ui-slider-value-in-ondragstop-event-react
+
+## Making Slider Update Map Component
+So the Nav component updates the Map component.
+
+- Dynamic context (consumer, provider): couldn't get it working because 
+I can't see how to update the context 
 
 # General
 

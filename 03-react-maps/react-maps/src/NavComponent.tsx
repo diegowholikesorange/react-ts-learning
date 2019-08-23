@@ -1,34 +1,34 @@
 import * as React from "react";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {Slider} from "@material-ui/core";
+import AppContext from "./AppContext";
 
-interface NavProps {
-    initialScale: number;
-}
 
-const NavComponent: React.FunctionComponent<NavProps> = (props) => {
+const NavComponent: React.FunctionComponent = () => {
 
-    const [scale, setScale] = useState(props.initialScale);
+    const appContext = useContext(AppContext); // get default value from context
+    const [sliderValue, setSliderValue] = useState(appContext.scale); // this state is local to the component
 
     const handleSliderMoved = (event: object, value: any) => {
-        setScale(value);
-        console.log("moved to scale " + {value});
+        setSliderValue(value);
+        console.log("internal slider value=" + {value});
     };
 
     const handleSliderCommited = (event: object, value: any) => {
-        setScale(value);
-        console.log("new scale " + {value});
+        setSliderValue(value);
+        console.log("publishing slider value=" + {value});
     };
 
     return (
-
         <div>
-            navigation settings
-            <Slider min={8} max={12} defaultValue={scale}
+            Navigation Settings
+            <Slider min={8} max={12} defaultValue={sliderValue}
                     onChange={handleSliderMoved}
                     onChangeCommitted={handleSliderCommited}
             />
-            <label>{scale}</label>
+            <label>{sliderValue}</label>
+            <p/>
+            <label>{appContext.scale}</label>
         </div>
     )
 };

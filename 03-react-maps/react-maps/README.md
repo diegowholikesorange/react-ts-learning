@@ -12,10 +12,11 @@ Adding Google Maps to React App via 'google-map-react'
 - https://stackoverflow.com/questions/47440051/get-material-ui-slider-value-in-ondragstop-event-react
 
 ## Making Slider Update Map Component
-So the Nav component updates the Map component.
+So the slider in the Nav component updates the zoom/scale of the Map component.
 
-- Dynamic context (consumer, provider): couldn't get it working because 
-I can't see how to update the context 
+- Dynamic context (consumer, provider): the idea is to use the useState hook's setter in the 
+context. Then consumers of the context can use this setter to change values
+which will trigger a refresh of all components within the context provider (i.e. the App).
 
 # General
 

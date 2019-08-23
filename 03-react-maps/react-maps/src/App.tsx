@@ -7,11 +7,8 @@ import {AppContextProvider, SharedState} from "./AppContext";
 
 const App: React.FC = () => {
 
-    // These will be the REAL values used in our context (the default set in AppContext will not be used)
     const [mapScale, mapScaleSetter] = useState<number>(9);
-
-    // Transform - create a SharedState object from the array we just got back from useState
-    let sharedState: SharedState = {
+    let sharedState: SharedState = { // <-- the REAL value for our context
         scale: mapScale,
         scaleSetter: mapScaleSetter
     };

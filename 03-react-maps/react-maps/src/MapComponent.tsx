@@ -6,20 +6,18 @@ import AppContext from "./AppContext";
 
 const MapComponent: React.FunctionComponent = () => {
 
-    const appContext = useContext(AppContext); // get default value from context
-    const center = {lat: -37.7835457, lng: 144.9162673};
+    const appContext = useContext(AppContext);
 
     return (
         <div style={{height: '90vh', width: '90vw'}}>
             <GoogleMapReact
                 bootstrapURLKeys={{key: 'AIzaSyBvr4nejV93VXy0bCT34cP6oz5tC1FtezA'}}
-                defaultCenter={center}
-                zoom={appContext == null ? 0 : appContext.scale}
+                defaultCenter={{lat: -37.7835457, lng: 144.9162673}}
+                zoom={appContext.scale}
             />
         </div>
 
     )
 };
-
 
 export default MapComponent;

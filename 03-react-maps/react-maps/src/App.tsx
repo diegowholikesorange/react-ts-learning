@@ -7,15 +7,19 @@ import {AppContextProvider, SharedState} from "./AppContext";
 
 const App: React.FC = () => {
 
-    const [s,ss]= useState<number>(9);
+    // These will be the REAL values used in our context (the default set in AppContext will not be used)
+    const [mapScale, mapScaleSetter] = useState<number>(9);
 
-    let applicationContext: SharedState = {
-        scale:s,
-        setter:ss
+    // Transform - create a SharedState object from the array we just got back from useState
+    let sharedState: SharedState = {
+        scale: mapScale,
+        scaleSetter: mapScaleSetter
     };
 
+    // Set the REAL value for shared state (via provider) into the context.
+    // Then the value can be accessed via the child elements NavComponent and MapComponent
     return (
-        <AppContextProvider value={applicationContext}>
+        <AppContextProvider value={sharedState}>
             <div className="App">
                 <header className="App-header">
                     <NavComponent/>

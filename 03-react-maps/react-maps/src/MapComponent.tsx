@@ -6,14 +6,14 @@ import AppContext from "./AppContext";
 
 const MapComponent: React.FunctionComponent = () => {
 
-    const appContext = useContext(AppContext);
+    const sharedContext = useContext(AppContext);
 
     return (
         <div style={{height: '90vh', width: '90vw'}}>
             <GoogleMapReact
                 bootstrapURLKeys={{key: 'AIzaSyBvr4nejV93VXy0bCT34cP6oz5tC1FtezA'}}
                 defaultCenter={{lat: -37.7835457, lng: 144.9162673}}
-                zoom={appContext.scale}
+                zoom={sharedContext.scale} // <----- use scale in context when drawing map
             />
         </div>
 

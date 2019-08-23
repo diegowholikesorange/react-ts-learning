@@ -6,10 +6,10 @@ import AppContext from "./AppContext";
 
 const NavComponent: React.FunctionComponent = () => {
 
-    const appContext = useContext(AppContext); // <--- get shared context
+    const sharedContext = useContext(AppContext); // <--- get shared context
 
     const handleSliderCommited = (event: object, value: any) => {
-        appContext.scaleSetter(value); // <---- update the value in the shared context via the setter (triggers refresh)
+        sharedContext.scaleSetter(value); // <---- update the value in the shared context (triggers refresh)
     };
 
     return (
@@ -17,7 +17,7 @@ const NavComponent: React.FunctionComponent = () => {
             Navigation Settings
             <Slider min={8}
                     max={12}
-                    defaultValue={appContext.scale}
+                    defaultValue={sharedContext.scale} // <---- use scale in context when drawing slider
                     onChangeCommitted={handleSliderCommited}
             />
         </div>

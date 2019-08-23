@@ -7,7 +7,7 @@ import AppContext from "./AppContext";
 const NavComponent: React.FunctionComponent = () => {
 
     const appContext = useContext(AppContext); // get default value from context
-    const [sliderValue, setSliderValue] = useState(appContext.scale); // this state is local to the component
+    const [sliderValue, setSliderValue] = useState(appContext == null ? 0 : appContext.scale); // this state is local to the component
 
     const handleSliderMoved = (event: object, value: any) => {
         setSliderValue(value);
@@ -17,6 +17,9 @@ const NavComponent: React.FunctionComponent = () => {
     const handleSliderCommited = (event: object, value: any) => {
         setSliderValue(value);
         console.log("publishing slider value=" + {value});
+        if (appContext != null) {
+            appContext.setter(value);
+        }
     };
 
     return (
@@ -28,7 +31,7 @@ const NavComponent: React.FunctionComponent = () => {
             />
             <label>{sliderValue}</label>
             <p/>
-            <label>{appContext.scale}</label>
+            <label>{appContext == null ? 0 : appContext.scale}</label>
         </div>
     )
 };

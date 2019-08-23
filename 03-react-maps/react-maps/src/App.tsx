@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import MapComponent from "./MapComponent";
 import NavComponent from "./NavComponent";
-import {AppContextProvider} from "./AppContext";
+import {AppContextProvider, SharedState} from "./AppContext";
 
 
 const App: React.FC = () => {
 
-    const applicationContext = {scale:9};
+    const [s,ss]= useState<number>(9);
+
+    let applicationContext: SharedState = {
+        scale:s,
+        setter:ss
+    };
 
     return (
         <AppContextProvider value={applicationContext}>

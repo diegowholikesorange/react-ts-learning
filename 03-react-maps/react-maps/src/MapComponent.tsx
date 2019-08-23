@@ -14,7 +14,7 @@ const MapComponent: React.FunctionComponent = () => {
             <GoogleMapReact
                 bootstrapURLKeys={{key: 'AIzaSyBvr4nejV93VXy0bCT34cP6oz5tC1FtezA'}}
                 defaultCenter={center}
-                zoom={appContext.scale}
+                zoom={appContext == null ? 0 : appContext.scale}
             />
         </div>
 

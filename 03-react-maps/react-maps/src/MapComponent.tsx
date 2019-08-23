@@ -9,14 +9,14 @@ interface Props {
 const MapComponent: React.FunctionComponent<Props> = (props) => {
 
     const [center, setCenter] = useState({lat: -37.7835457, lng: 144.9162673});
-    const [zoom, setZoom] = useState(9);
+    const [scale, setScale] = useState(9);
 
     return (
         <div style={{height: '90vh', width: '90vw'}}>
             <GoogleMapReact
-                bootstrapURLKeys={{key: 'AIzaSyAf58ngvegQsQ5xUZFbhr4VgYY8-LiI1nk'}}
+                bootstrapURLKeys={{key: 'AIzaSyBvr4nejV93VXy0bCT34cP6oz5tC1FtezA'}}
                 defaultCenter={center}
-                defaultZoom={zoom}
+                zoom={scale}
             />
         </div>
 

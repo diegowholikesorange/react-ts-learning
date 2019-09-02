@@ -9,7 +9,7 @@ const MapComponent: React.FunctionComponent = () => {
     const sharedState = useContext(AppContext); // <--- get shared state from context
 
     return (
-        <div style={{height: '90vh', width: '90vw'}}>
+        <div style={{height: '70vh', width: '70vw'}}>
             <GoogleMapReact
                 bootstrapURLKeys={{key: 'AIzaSyBvr4nejV93VXy0bCT34cP6oz5tC1FtezA'}}
                 defaultCenter={{lat: -37.7835457, lng: 144.9162673}}

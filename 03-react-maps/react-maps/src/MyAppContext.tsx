@@ -14,8 +14,8 @@ let defaultContext: MapsContext = {
     }
 };
 
-const AppContext = React.createContext<MapsContext>(defaultContext); // <---- create a context with the ugly default
+const MyAppContext = React.createContext<MapsContext>(defaultContext); // <---- create a context with the ugly default
 
-export const AppContextProvider = AppContext.Provider; // <--- the real value can be set via this provider
+export const MyAppContextProvider = MyAppContext.Provider; // <--- the real value can be set via this provider
 
-export default AppContext;
+export default MyAppContext;

@@ -1,13 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 const App: React.FC = () => {
-  return (
-    <form>
-      <label id={"buttonLabel"}>Click the button</label>
-      <button aria-labelledby={"buttonLabel"}>Submit</button>
-    </form>
-  );
+
+    const [label, setLabel] = useState('Click the button');
+
+    const handleButtonClick = () => {
+        setLabel("Thanks")
+    };
+
+    return (
+        <div>
+            <label id={"buttonLabel"}>{label}</label>
+            <button
+                aria-labelledby={"buttonLabel"}
+                onClick={handleButtonClick}>Submit
+            </button>
+        </div>
+    );
 };
 
 export default App;

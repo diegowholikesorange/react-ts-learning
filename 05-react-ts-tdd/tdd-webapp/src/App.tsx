@@ -3,10 +3,11 @@ import './App.css';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <button>Submit</button>
-    </div>
+    <form>
+      <label id={"buttonLabel"}>Click the button</label>
+      <button aria-labelledby={"buttonLabel"}>Submit</button>
+    </form>
   );
-}
+};
 
 export default App;

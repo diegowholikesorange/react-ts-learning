@@ -15,6 +15,9 @@ export const QUERY_LAUNCH_PROFILE = gql`
                 rocket_name
                 rocket_type
             }
+            links {
+                flickr_images
+            }
         }
     }
 `;

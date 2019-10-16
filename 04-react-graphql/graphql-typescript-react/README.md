@@ -14,3 +14,10 @@ https://api.spacex.land/graphql/
 
 To start:
 ```yarn start```
+
+To regenerate the types and hooks:
+```yarn codegen```
+ 
+- The schema is remote on spaceex
+- The generator downloads the schema and creates types (interfaces) with all fields in graphql.tsx
+- The generator also creates query types (typed hooks) for the query expressions defined in the component's query.ts

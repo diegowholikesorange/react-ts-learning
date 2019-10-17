@@ -1,1 +1,5 @@
 01-typescript/main.js
+/node_modules/
+/.idea/
+/01-typescript/node_modules/typescript/
+/learning-react-ts.iml

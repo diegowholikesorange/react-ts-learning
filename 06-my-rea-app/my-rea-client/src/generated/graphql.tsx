@@ -25,59 +25,59 @@ export type QueryHelloArgs = {
   name?: Maybe<Scalars['String']>
 };
 
-export type HelloQueryQueryVariables = {};
+export type HelloQueryVariables = {};
 
 
-export type HelloQueryQuery = (
+export type HelloQuery = (
   { __typename?: 'Query' }
   & Pick<Query, 'hello'>
 );
 
 
-export const HelloQueryDocument = gql`
-    query HelloQuery {
+export const HelloDocument = gql`
+    query Hello {
   hello(name: "Guru")
 }
     `;
-export type HelloQueryComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<HelloQueryQuery, HelloQueryQueryVariables>, 'query'>;
+export type HelloComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<HelloQuery, HelloQueryVariables>, 'query'>;
 
-    export const HelloQueryComponent = (props: HelloQueryComponentProps) => (
-      <ApolloReactComponents.Query<HelloQueryQuery, HelloQueryQueryVariables> query={HelloQueryDocument} {...props} />
+    export const HelloComponent = (props: HelloComponentProps) => (
+      <ApolloReactComponents.Query<HelloQuery, HelloQueryVariables> query={HelloDocument} {...props} />
     );
     
-export type HelloQueryProps<TChildProps = {}> = ApolloReactHoc.DataProps<HelloQueryQuery, HelloQueryQueryVariables> & TChildProps;
-export function withHelloQuery<TProps, TChildProps = {}>(operationOptions?: ApolloReactHoc.OperationOption<
+export type HelloProps<TChildProps = {}> = ApolloReactHoc.DataProps<HelloQuery, HelloQueryVariables> & TChildProps;
+export function withHello<TProps, TChildProps = {}>(operationOptions?: ApolloReactHoc.OperationOption<
   TProps,
-  HelloQueryQuery,
-  HelloQueryQueryVariables,
-  HelloQueryProps<TChildProps>>) {
-    return ApolloReactHoc.withQuery<TProps, HelloQueryQuery, HelloQueryQueryVariables, HelloQueryProps<TChildProps>>(HelloQueryDocument, {
-      alias: 'helloQuery',
+  HelloQuery,
+  HelloQueryVariables,
+  HelloProps<TChildProps>>) {
+    return ApolloReactHoc.withQuery<TProps, HelloQuery, HelloQueryVariables, HelloProps<TChildProps>>(HelloDocument, {
+      alias: 'hello',
       ...operationOptions
     });
 };
 
 /**
- * __useHelloQueryQuery__
+ * __useHelloQuery__
  *
- * To run a query within a React component, call `useHelloQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useHelloQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties 
+ * To run a query within a React component, call `useHelloQuery` and pass it any options that fit your needs.
+ * When your component renders, `useHelloQuery` returns an object from Apollo Client that contains loading, error, and data properties 
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useHelloQueryQuery({
+ * const { data, loading, error } = useHelloQuery({
  *   variables: {
  *   },
  * });
  */
-export function useHelloQueryQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<HelloQueryQuery, HelloQueryQueryVariables>) {
-        return ApolloReactHooks.useQuery<HelloQueryQuery, HelloQueryQueryVariables>(HelloQueryDocument, baseOptions);
+export function useHelloQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<HelloQuery, HelloQueryVariables>) {
+        return ApolloReactHooks.useQuery<HelloQuery, HelloQueryVariables>(HelloDocument, baseOptions);
       }
-export function useHelloQueryLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<HelloQueryQuery, HelloQueryQueryVariables>) {
-          return ApolloReactHooks.useLazyQuery<HelloQueryQuery, HelloQueryQueryVariables>(HelloQueryDocument, baseOptions);
+export function useHelloLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<HelloQuery, HelloQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<HelloQuery, HelloQueryVariables>(HelloDocument, baseOptions);
         }
-export type HelloQueryQueryHookResult = ReturnType<typeof useHelloQueryQuery>;
-export type HelloQueryLazyQueryHookResult = ReturnType<typeof useHelloQueryLazyQuery>;
-export type HelloQueryQueryResult = ApolloReactCommon.QueryResult<HelloQueryQuery, HelloQueryQueryVariables>;
+export type HelloQueryHookResult = ReturnType<typeof useHelloQuery>;
+export type HelloLazyQueryHookResult = ReturnType<typeof useHelloLazyQuery>;
+export type HelloQueryResult = ApolloReactCommon.QueryResult<HelloQuery, HelloQueryVariables>;

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { HelloQueryQuery } from '../../generated/graphql';
+import { HelloQuery } from '../../generated/graphql';
 
 interface Props {
-    response: HelloQueryQuery;
+    data: HelloQuery;
 }
 
-const HelloWorld: React.FC<Props> = ({ response }) => (
+const HelloWorld: React.FC<Props> = ({ data }) => (
     <div>
-        response.hello
+        {data.hello}
     </div>
 );
 

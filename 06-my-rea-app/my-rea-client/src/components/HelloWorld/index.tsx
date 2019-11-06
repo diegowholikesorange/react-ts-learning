@@ -1,18 +1,18 @@
 import * as React from 'react';
-import {useHelloQueryQuery} from "../../generated/graphql";
+import {useHelloQuery} from "../../generated/graphql";
 import HelloWorld from "./HelloWorld";
 
 const HelloWorldContainer = () => {
 
-    const { data, error, loading } = useHelloQueryQuery();
+    const { data, error, loading } = useHelloQuery();
 
     if (loading) {
         return <div>Loading...</div>;
     }
     if (error || !data) {
-        return <div>ERROR</div>;
+        return <div>ERROR: error</div>;
     }
-    return <HelloWorld response={data} />;
+    return <HelloWorld data={data} />;
 };
 
 export default HelloWorldContainer;

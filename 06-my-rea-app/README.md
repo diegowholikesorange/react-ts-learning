@@ -17,13 +17,24 @@ graphql create my-rea-server
 and is started using ```yarn start```. Then use the playground on http://localhost:4000/.
 
 ## History of Creation
-1. Server: tested query in playground:
+### Server
+1. Test query in playground:
     ```
     query{
       hello(name:"Guru")
     }
     ```
-1. Client: created src/components/HelloWorld/query.ts
+### Client    
+1. Create src/components/HelloWorld/query.ts
+    ```
+    import gql from 'graphql-tag';
+    
+    export const HELLO_QUERY = gql`
+        query HelloQuery {
+            hello(name:"Guru")
+        }
+    `
+    ```
 1. Add the generator (https://graphql-code-generator.com/docs/getting-started/#installation)
     ```
        yarn add graphql
@@ -49,22 +60,20 @@ and is started using ```yarn start```. Then use the playground on http://localho
    ```
    yarn
    ```
-   
 1. Update codegen.yml to read like this:
-```
-overwrite: true
-schema: "http://localhost:4000"
-documents: "./src/components/**/*.{ts,tsx}"
-generates:
-  src/generated/graphql.tsx:
-    plugins:
-      - 'typescript'
-      - 'typescript-operations'
-      - 'typescript-react-apollo'
-    config:
-      withHooks: true
-```
-
+    ```
+    overwrite: true
+    schema: "http://localhost:4000"
+    documents: "./src/components/**/*.{ts,tsx}"
+    generates:
+      src/generated/graphql.tsx:
+        plugins:
+          - 'typescript'
+          - 'typescript-operations'
+          - 'typescript-react-apollo'
+        config:
+          withHooks: true
+    ```
 1. Run the generation
     ```
     npm run codegen
@@ -73,12 +82,20 @@ generates:
     ```
     06-my-rea-app/my-rea-client/src/generated/graphql.tsx
     ```
+1. Create 
 
 # Troubleshooting
 ## Error: listen EADDRINUSE :::4000
 Just run a 
 ```
 killall -9 node
+```
+
+## Cannot find module '@apollo/react-common'.  TS2307
+When running ```yarn start``` in the client. Fix:
+```
+npm install @apollo/react-common
+yarn
 ```
 
 

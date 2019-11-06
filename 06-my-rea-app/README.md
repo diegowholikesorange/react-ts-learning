@@ -178,4 +178,5 @@ node install yarn
 ```
 
 # References
-https://blog.logrocket.com/build-a-graphql-react-app-with-typescript/
+- Code Generator: https://graphql-code-generator.com/docs/getting-started/
+- Example https://blog.logrocket.com/build-a-graphql-react-app-with-typescript/

@@ -150,6 +150,18 @@ and is started using ```yarn start```. Then use the playground on http://localho
     ```    
 1. Run server via ```yarn start```, then client via ```yarn start```
 
+### Modification
+1. Change the query in playback to
+    ```
+    query Hello($surname:String)  {
+      hello(name:$surname)
+    }
+    ```
+    and add a variable ```{"surname":"Kenny"}```.
+    Then test this in the playground.
+1. Update the query in query.ts with above expression
+1. Re-run the generator ```npm run codegen```    
+
 # Troubleshooting
 ## Error: listen EADDRINUSE :::4000
 Just run a 

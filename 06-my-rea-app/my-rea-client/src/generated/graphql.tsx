@@ -25,7 +25,9 @@ export type QueryHelloArgs = {
   name?: Maybe<Scalars['String']>
 };
 
-export type HelloQueryVariables = {};
+export type HelloQueryVariables = {
+  surname?: Maybe<Scalars['String']>
+};
 
 
 export type HelloQuery = (
@@ -35,8 +37,8 @@ export type HelloQuery = (
 
 
 export const HelloDocument = gql`
-    query Hello {
-  hello(name: "Guru")
+    query Hello($surname: String) {
+  hello(name: $surname)
 }
     `;
 export type HelloComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<HelloQuery, HelloQueryVariables>, 'query'>;
@@ -69,6 +71,7 @@ export function withHello<TProps, TChildProps = {}>(operationOptions?: ApolloRea
  * @example
  * const { data, loading, error } = useHelloQuery({
  *   variables: {
+ *      surname: // value for 'surname'
  *   },
  * });
  */

@@ -4,7 +4,11 @@ import HelloWorld from "./HelloWorld";
 
 const HelloWorldContainer = () => {
 
-    const { data, error, loading } = useHelloQuery();
+    const {data, error, loading} = useHelloQuery({
+        variables: {
+            surname: "Kenny"
+        },
+    });
 
     if (loading) {
         return <div>Loading...</div>;
@@ -12,7 +16,7 @@ const HelloWorldContainer = () => {
     if (error || !data) {
         return <div>ERROR: error</div>;
     }
-    return <HelloWorld data={data} />;
+    return <HelloWorld data={data}/>;
 };
 
 export default HelloWorldContainer;

@@ -68,3 +68,9 @@ generates:
     ```
    This generates files 
 
+# Troubleshooting
+## Error: listen EADDRINUSE :::4000
+Just run a 
+```
+killall -9 node
+```

@@ -106,3 +106,6 @@ nvm install stable
 npm install -g npm
 node install yarn
 ```
+
+# References
+https://blog.logrocket.com/build-a-graphql-react-app-with-typescript/

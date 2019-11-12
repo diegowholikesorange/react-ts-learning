@@ -2,13 +2,13 @@ import {GraphQLServer} from 'graphql-yoga'
 
 const typeDefs = `
   type Query {
-    hello(title: String, name: String): String
+    pageContent(title: String, name: String): String
   }
 `;
 
 const resolvers = {
   Query: {
-    hello: (_, { title: title, name }) => {
+    pageContent: (root, { title: title, name }, context, info) => {
       return `Hello ${title}. ${name || 'World!'}`
     }
   }

@@ -2,14 +2,14 @@ import {GraphQLServer} from 'graphql-yoga'
 
 const typeDefs = `
   type Query {
-    hello(name: String): String
+    hello(title: String, name: String): String
   }
 `;
 
 const resolvers = {
   Query: {
-    hello: (_, { name }) => {
-      return `Hello ${name || 'World!'}`
+    hello: (_, { title: title, name }) => {
+      return `Hello ${title}. ${name || 'World!'}`
     }
   }
 };

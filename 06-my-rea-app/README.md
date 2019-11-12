@@ -1,6 +1,4 @@
-# My REA App
-
-## Project Creation
+# Project Creation
 
 The frontend was created with [Create React App](https://github.com/facebook/create-react-app):
 ```
@@ -16,15 +14,15 @@ graphql create my-rea-server
 ```
 and is started using ```yarn start```. Then use the playground on http://localhost:4000/.
 
-## History of Creation
-### Server
+# Creating First Example
+## Server
 1. Test query in playground:
     ```
     query{
       hello(name:"Guru")
     }
     ```
-### Client    
+## Client    
 1. Add Apollo packages
     ```
     yarn add apollo-boost react-apollo react-apollo-hooks graphql-tag graphql
@@ -150,7 +148,7 @@ and is started using ```yarn start```. Then use the playground on http://localho
     ```    
 1. Run server via ```yarn start```, then client via ```yarn start```
 
-### Modification
+## Modifying the First Example
 1. Change the query in playback to
     ```
     query Hello($surname:String)  {
@@ -161,6 +159,25 @@ and is started using ```yarn start```. Then use the playground on http://localho
     Then test this in the playground.
 1. Update the query in query.ts with above expression
 1. Re-run the generator ```npm run codegen```    
+
+
+# Current CodeBase
+## Queries
+```
+query Hello($title: String, $surname: String) {
+  pageContent {
+    welcome(title:$title, name:$surname)
+  }
+}
+```
+with variables:
+```
+{
+  "surname":"Kennya",
+  "title": "Dr"
+}
+```
+
 
 # Troubleshooting
 ## Error: listen EADDRINUSE :::4000

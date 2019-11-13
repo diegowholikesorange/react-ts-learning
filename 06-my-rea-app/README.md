@@ -162,7 +162,7 @@ and is started using ```yarn start```. Then use the playground on http://localho
 
 
 # Current CodeBase
-## Queries
+## Queries for Playground
 ```
 query Hello($title: String, $surname: String) {
   pageContent {
@@ -176,6 +176,27 @@ with variables:
   "surname":"Kenny",
   "title": "Dr"
 }
+```
+
+## Moving from Yoga to Apollo
+```bash
+yarn add apollo-server
+yarn add graphql
+```
+
+
+## Using Generator for Server
+```bash
+yarn add graphql
+yarn add -D @graphql-codegen/typescript-resolvers
+yarn add -D @graphql-codegen/cli
+$(npm bin)/graphql-codegen init
+```
+- Choose backend application this time, keep other defaults
+
+Then
+```bash
+npm run codegen
 ```
 
 

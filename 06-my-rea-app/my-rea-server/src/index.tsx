@@ -1,26 +1,11 @@
-import {GraphQLServer} from 'graphql-yoga'
+import { ApolloServer } from 'apollo-server';
+import { importSchema } from 'graphql-import'
+import resolvers from './resolvers';
 
+const typeDefs = importSchema('./src/schema.graphql')
 
-const resolvers = {
-    Query: {
-        pageContent: () => {
-            return new PageContent();
-        }
-    },
-    PageContent: {
-        welcome: (root, {title: title, name}) => {
-            return `Hello ${title}. ${name || 'World!'}`
-        }
-    }
-};
+const server = new ApolloServer({ resolvers, typeDefs });
 
-class PageContent {
-    welcome: String
-}
+server.listen()
+    .then(({ url }) => console.log(`Server ready at ${url}. `));
 
-const server = new GraphQLServer({
-    typeDefs: './src/schema.graphql',
-    resolvers
-});
-
-server.start(() => console.log('GraphQL-Yoga Server is running on http://localhost:4000'))

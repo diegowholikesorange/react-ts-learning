@@ -6,6 +6,7 @@ const HelloWorldContainer = () => {
 
     const {data, error, loading} = useHelloQuery({
         variables: {
+            title: "Dr.",
             surname: "Kenny"
         },
     });

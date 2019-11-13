@@ -173,7 +173,7 @@ query Hello($title: String, $surname: String) {
 with variables:
 ```
 {
-  "surname":"Kennya",
+  "surname":"Kenny",
   "title": "Dr"
 }
 ```

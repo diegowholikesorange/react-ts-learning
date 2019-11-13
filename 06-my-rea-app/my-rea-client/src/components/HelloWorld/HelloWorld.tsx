@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HelloQuery } from '../../generated/graphql';
+import { HelloQuery, HelloQueryResult } from '../../generated/graphql';
 
 interface Props {
     data: HelloQuery;
@@ -7,7 +7,7 @@ interface Props {
 
 const HelloWorld: React.FC<Props> = ({ data }) => (
     <div>
-        {data.hello}
+        {data.pageContent!.welcome}
     </div>
 );
 

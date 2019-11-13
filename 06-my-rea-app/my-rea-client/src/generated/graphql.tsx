@@ -15,30 +15,48 @@ export type Scalars = {
   Float: number,
 };
 
-export type Query = {
-   __typename?: 'Query',
-  hello?: Maybe<Scalars['String']>,
+export type PageContent = {
+   __typename?: 'PageContent',
+  welcome?: Maybe<Scalars['String']>,
 };
 
 
-export type QueryHelloArgs = {
+export type PageContentWelcomeArgs = {
+  title?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>
+};
+
+export type Query = {
+   __typename?: 'Query',
+  pageContent?: Maybe<PageContent>,
+};
+
+
+export type QueryPageContentArgs = {
+  title?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>
 };
 
 export type HelloQueryVariables = {
+  title?: Maybe<Scalars['String']>,
   surname?: Maybe<Scalars['String']>
 };
 
 
 export type HelloQuery = (
   { __typename?: 'Query' }
-  & Pick<Query, 'hello'>
+  & { pageContent: Maybe<(
+    { __typename?: 'PageContent' }
+    & Pick<PageContent, 'welcome'>
+  )> }
 );
 
 
 export const HelloDocument = gql`
-    query Hello($surname: String) {
-  hello(name: $surname)
+    query Hello($title: String, $surname: String) {
+  pageContent {
+    welcome(title: $title, name: $surname)
+  }
 }
     `;
 export type HelloComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<HelloQuery, HelloQueryVariables>, 'query'>;
@@ -71,6 +89,7 @@ export function withHello<TProps, TChildProps = {}>(operationOptions?: ApolloRea
  * @example
  * const { data, loading, error } = useHelloQuery({
  *   variables: {
+ *      title: // value for 'title'
  *      surname: // value for 'surname'
  *   },
  * });

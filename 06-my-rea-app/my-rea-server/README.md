@@ -53,7 +53,7 @@ yarn dev
 | File name 　　　　　　　　　　　　　　| Description 　　　　　　　　<br><br>| 
 | :--  | :--         |
 | `└── src ` (_directory_) | _Contains the source files for your GraphQL server_ |
-| `　　├── index.ts` | The entry point for your GraphQL server |
+| `　　├── index.tsx` | The entry point for your GraphQL server |
 
 
 ## Contributing

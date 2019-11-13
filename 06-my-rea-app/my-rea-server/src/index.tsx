@@ -1,28 +1,25 @@
-import { ApolloServer } from 'apollo-server';
-import { importSchema } from 'graphql-import'
+import {ApolloServer} from 'apollo-server';
+import {importSchema} from 'graphql-import'
+import {Resolvers} from "./generated/graphql";
 
 const typeDefs = importSchema('./src/schema.graphql')
 
 
-const resolvers = {
+const resolvers: Resolvers = {
     Query: {
         pageContent: () => {
-            return new PageContent();
+            return {};
         }
     },
     PageContent: {
         welcome: (root, {title: title, name}) => {
             return `Hello ${title}. ${name || 'World!'}`
         }
-    }
+    },
 };
 
-class PageContent {
-    welcome: String
-};
-
-const server = new ApolloServer({ resolvers, typeDefs });
+const server = new ApolloServer({resolvers, typeDefs});
 
 server.listen()
-    .then(({ url }) => console.log(`Server ready at ${url}. `));
+    .then(({url}) => console.log(`Server ready at ${url}. `));
 

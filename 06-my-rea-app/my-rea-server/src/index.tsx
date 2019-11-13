@@ -3,12 +3,12 @@ import {GraphQLServer} from 'graphql-yoga'
 
 const resolvers = {
     Query: {
-        pageContent: (root, {title: title, name}, context, info) => {
+        pageContent: () => {
             return new PageContent();
         }
     },
     PageContent: {
-        welcome: (root, {title: title, name}, context, info) => {
+        welcome: (root, {title: title, name}) => {
             return `Hello ${title}. ${name || 'World!'}`
         }
     }
@@ -23,4 +23,4 @@ const server = new GraphQLServer({
     resolvers
 });
 
-server.start(() => console.log('GraphQL Server is running on http://localhost:4000'))
+server.start(() => console.log('GraphQL-Yoga Server is running on http://localhost:4000'))

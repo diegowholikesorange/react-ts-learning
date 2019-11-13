@@ -1,14 +1,5 @@
 import {GraphQLServer} from 'graphql-yoga'
 
-const typeDefs = `
-  type Query {
-    pageContent(title: String, name: String): PageContent
-  }
-  
-  type PageContent {
-    welcome(title: String, name: String): String
-  }
-`;
 
 const resolvers = {
     Query: {
@@ -28,7 +19,7 @@ class PageContent {
 }
 
 const server = new GraphQLServer({
-    typeDefs,
+    typeDefs: './src/schema.graphql',
     resolvers
 });
 

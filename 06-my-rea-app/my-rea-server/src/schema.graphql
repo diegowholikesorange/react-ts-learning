@@ -1,0 +1,7 @@
+type Query {
+  pageContent(title: String, name: String): PageContent
+}
+
+type PageContent {
+  welcome(title: String, name: String): String
+}

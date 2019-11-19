@@ -1,4 +1,4 @@
-import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { GraphQLResolveInfo } from 'graphql';
 export type Maybe<T> = T | null;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -7,15 +7,7 @@ export type Scalars = {
   Boolean: boolean,
   Int: number,
   Float: number,
-  /** The `Upload` scalar type represents a file upload. */
-  Upload: any,
 };
-
-
-export enum CacheControlScope {
-  Public = 'PUBLIC',
-  Private = 'PRIVATE'
-}
 
 export type PageContent = {
    __typename?: 'PageContent',
@@ -38,7 +30,6 @@ export type QueryPageContentArgs = {
   title?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>
 };
-
 
 
 
@@ -115,9 +106,6 @@ export type ResolversTypes = {
   String: ResolverTypeWrapper<Scalars['String']>,
   PageContent: ResolverTypeWrapper<PageContent>,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
-  CacheControlScope: CacheControlScope,
-  Upload: ResolverTypeWrapper<Scalars['Upload']>,
-  Int: ResolverTypeWrapper<Scalars['Int']>,
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -126,13 +114,7 @@ export type ResolversParentTypes = {
   String: Scalars['String'],
   PageContent: PageContent,
   Boolean: Scalars['Boolean'],
-  CacheControlScope: CacheControlScope,
-  Upload: Scalars['Upload'],
-  Int: Scalars['Int'],
 };
-
-export type CacheControlDirectiveResolver<Result, Parent, ContextType = any, Args = {   maxAge?: Maybe<Maybe<Scalars['Int']>>,
-  scope?: Maybe<Maybe<CacheControlScope>> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
 export type PageContentResolvers<ContextType = any, ParentType extends ResolversParentTypes['PageContent'] = ResolversParentTypes['PageContent']> = {
   welcome?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType, PageContentWelcomeArgs>,
@@ -142,14 +124,9 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   pageContent?: Resolver<Maybe<ResolversTypes['PageContent']>, ParentType, ContextType, QueryPageContentArgs>,
 };
 
-export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
-  name: 'Upload'
-}
-
 export type Resolvers<ContextType = any> = {
   PageContent?: PageContentResolvers<ContextType>,
   Query?: QueryResolvers<ContextType>,
-  Upload?: GraphQLScalarType,
 };
 
 
@@ -158,13 +135,3 @@ export type Resolvers<ContextType = any> = {
  * Use "Resolvers" root object instead. If you wish to get "IResolvers", add "typesPrefix: I" to your config.
 */
 export type IResolvers<ContextType = any> = Resolvers<ContextType>;
-export type DirectiveResolvers<ContextType = any> = {
-  cacheControl?: CacheControlDirectiveResolver<any, any, ContextType>,
-};
-
-
-/**
-* @deprecated
-* Use "DirectiveResolvers" root object instead. If you wish to get "IDirectiveResolvers", add "typesPrefix: I" to your config.
-*/
-export type IDirectiveResolvers<ContextType = any> = DirectiveResolvers<ContextType>;

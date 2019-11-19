@@ -1,23 +1,9 @@
 import {ApolloServer} from 'apollo-server';
 import {importSchema} from 'graphql-import'
-import {Resolvers} from "./generated/graphql";
+import * as queryResolvers from "./resolvers";
 
 const typeDefs = importSchema('./src/schema.graphql')
-
-
-const resolvers: Resolvers = {
-    Query: {
-        pageContent: () => {
-            return {};
-        }
-    },
-    PageContent: {
-        welcome: (root, {title: title, name}) => {
-            return `Hello ${title}. ${name || 'World!'}`
-        }
-    },
-};
-
+const resolvers = queryResolvers.resolvers;
 const server = new ApolloServer({resolvers, typeDefs});
 
 server.listen()

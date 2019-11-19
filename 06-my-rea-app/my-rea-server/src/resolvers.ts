@@ -9,7 +9,10 @@ export const resolvers: Resolvers = {
     PageContent: {
         welcome: (root, {title: title, name}) => {
             return `Hello ${title}. ${name || 'World!'}`
+        },
+        properties: (root, {postcode: postcode}) => {
+            return [{address: "1 Main Street "+postcode}, {address: "55 Central Ave"}]
         }
-    },
+    }
 };
 

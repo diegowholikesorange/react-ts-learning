@@ -18,12 +18,23 @@ export type Scalars = {
 export type PageContent = {
    __typename?: 'PageContent',
   welcome?: Maybe<Scalars['String']>,
+  properties?: Maybe<Array<Maybe<Property>>>,
 };
 
 
 export type PageContentWelcomeArgs = {
   title?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>
+};
+
+
+export type PageContentPropertiesArgs = {
+  postcode?: Maybe<Scalars['String']>
+};
+
+export type Property = {
+   __typename?: 'Property',
+  address?: Maybe<Scalars['String']>,
 };
 
 export type Query = {
@@ -39,7 +50,8 @@ export type QueryPageContentArgs = {
 
 export type HelloQueryVariables = {
   title?: Maybe<Scalars['String']>,
-  surname?: Maybe<Scalars['String']>
+  surname?: Maybe<Scalars['String']>,
+  postcode?: Maybe<Scalars['String']>
 };
 
 
@@ -48,14 +60,21 @@ export type HelloQuery = (
   & { pageContent: Maybe<(
     { __typename?: 'PageContent' }
     & Pick<PageContent, 'welcome'>
+    & { properties: Maybe<Array<Maybe<(
+      { __typename?: 'Property' }
+      & Pick<Property, 'address'>
+    )>>> }
   )> }
 );
 
 
 export const HelloDocument = gql`
-    query Hello($title: String, $surname: String) {
+    query Hello($title: String, $surname: String, $postcode: String) {
   pageContent {
     welcome(title: $title, name: $surname)
+    properties(postcode: $postcode) {
+      address
+    }
   }
 }
     `;
@@ -91,6 +110,7 @@ export function withHello<TProps, TChildProps = {}>(operationOptions?: ApolloRea
  *   variables: {
  *      title: // value for 'title'
  *      surname: // value for 'surname'
+ *      postcode: // value for 'postcode'
  *   },
  * });
  */

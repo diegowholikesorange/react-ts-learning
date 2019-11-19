@@ -4,4 +4,9 @@ type Query {
 
 type PageContent {
   welcome(title: String, name: String): String
+  properties(postcode: String): [Property]
+}
+
+type Property {
+    address: String
 }

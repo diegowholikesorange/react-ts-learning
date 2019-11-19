@@ -164,17 +164,21 @@ and is started using ```yarn start```. Then use the playground on http://localho
 # Current CodeBase
 ## Queries for Playground
 ```
-query Hello($title: String, $surname: String) {
+query Hello($title: String, $surname: String, $postcode: String) {
   pageContent {
     welcome(title:$title, name:$surname)
+    properties(postcode:$postcode) {
+      address
+    }    
   }
 }
 ```
 with variables:
 ```
 {
-  "surname":"Kenny",
-  "title": "Dr"
+  "surname":"Keannu",
+  "title": "Dr",
+  "postcode":"3000"
 }
 ```
 

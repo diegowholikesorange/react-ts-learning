@@ -12,12 +12,23 @@ export type Scalars = {
 export type PageContent = {
    __typename?: 'PageContent',
   welcome?: Maybe<Scalars['String']>,
+  properties?: Maybe<Array<Maybe<Property>>>,
 };
 
 
 export type PageContentWelcomeArgs = {
   title?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>
+};
+
+
+export type PageContentPropertiesArgs = {
+  postcode?: Maybe<Scalars['String']>
+};
+
+export type Property = {
+   __typename?: 'Property',
+  address?: Maybe<Scalars['String']>,
 };
 
 export type Query = {
@@ -105,6 +116,7 @@ export type ResolversTypes = {
   Query: ResolverTypeWrapper<{}>,
   String: ResolverTypeWrapper<Scalars['String']>,
   PageContent: ResolverTypeWrapper<PageContent>,
+  Property: ResolverTypeWrapper<Property>,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
 };
 
@@ -113,11 +125,17 @@ export type ResolversParentTypes = {
   Query: {},
   String: Scalars['String'],
   PageContent: PageContent,
+  Property: Property,
   Boolean: Scalars['Boolean'],
 };
 
 export type PageContentResolvers<ContextType = any, ParentType extends ResolversParentTypes['PageContent'] = ResolversParentTypes['PageContent']> = {
   welcome?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType, PageContentWelcomeArgs>,
+  properties?: Resolver<Maybe<Array<Maybe<ResolversTypes['Property']>>>, ParentType, ContextType, PageContentPropertiesArgs>,
+};
+
+export type PropertyResolvers<ContextType = any, ParentType extends ResolversParentTypes['Property'] = ResolversParentTypes['Property']> = {
+  address?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
@@ -126,6 +144,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 
 export type Resolvers<ContextType = any> = {
   PageContent?: PageContentResolvers<ContextType>,
+  Property?: PropertyResolvers<ContextType>,
   Query?: QueryResolvers<ContextType>,
 };
 

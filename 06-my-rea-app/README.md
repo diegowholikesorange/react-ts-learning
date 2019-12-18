@@ -23,7 +23,7 @@ and is started using ```yarn start```. Then use the playground on http://localho
     }
     ```
 ## Client    
-1. Add Apollo packages
+1. Add Apollo packages 
     ```
     yarn add apollo-boost react-apollo react-apollo-hooks graphql-tag graphql
     ```

@@ -1,6 +1,6 @@
 import * as React from "react";
 import {useContext} from "react";
-import {Slider} from "@material-ui/core";
+import {Slider, Button} from "@material-ui/core";
 import MyAppContext from "./MyAppContext";
 
 
@@ -12,6 +12,10 @@ const NavComponent: React.FunctionComponent = () => {
         myAppContext.scaleSetter(value); // <---- update the value in context (and refresh all children of App)
     };
 
+    const handleButtonClicked = () => {
+        myAppContext.scaleSetter(42);
+    };
+
     return (
         <div>
             Navigation Settings
@@ -20,6 +24,7 @@ const NavComponent: React.FunctionComponent = () => {
                     defaultValue={myAppContext.scale} // <---- use scale in context when drawing slider
                     onChangeCommitted={handleSliderCommited}
             />
+            <Button onClick={handleButtonClicked}>Reset</Button>
         </div>
     )
 };
